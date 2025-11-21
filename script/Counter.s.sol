@@ -9,11 +9,14 @@ contract CounterScript is Script {
 
     function setUp() public {}
 
-    function run() public {
+    function run() external returns (Counter) {
         vm.startBroadcast();
 
         counter = new Counter();
 
         vm.stopBroadcast();
+
+        return counter;
+
     }
 }
